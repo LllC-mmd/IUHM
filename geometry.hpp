@@ -131,13 +131,12 @@ class Cell{
 		float _hv;
 	public:
 		// physical property
-		float S; // source term caused by rainfall, gully sewer
+		float S; // source term caused by effective rainfall, gully drainage
 		int label;
 		float area;
 		float n;
 		float bc;  // centroid bed elevation
 		float zeta; // water surface level above reference surface, h = zeta - bc
-		float pe;  // effective rainfall
 		float d;  // infiltration, inlet flow to sewer or river, p - d = pe
 		float slx;   // slope along the x direction
 		float sly;   // slope along the y direction
@@ -156,6 +155,7 @@ class Cell{
 		void setValh(float h){_h=h;};
 		void setValhu(float hu){_hu=hu;};
 		void setValhv(float hv){_hv=hv;};
+		void setValS(float S_mass){S=S_mass;};
 		// Finite Volume Method
 		void step();  // use fluxes of edges to update the cell-averaged variable
 		// int inundation_check();  
