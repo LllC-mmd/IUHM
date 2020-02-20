@@ -14,7 +14,7 @@
 #
 #############################################################################
 
-# A modified verision of GeoMHYDAS's m.snaplp for GRASS GIS 7
+# A modified version of GeoMHYDAS's m.snaplp for GRASS GIS 7
 # For original version, ref to: https://github.com/UMR-LISAH/Geo-MHYDAS-2010
 
 #only the lines are modified
