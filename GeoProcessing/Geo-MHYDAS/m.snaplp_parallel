@@ -207,9 +207,9 @@ function snap_point ()
 	      head -n 1 $TMP.${PROG}.$1.391 |cut -d" " -f1 > $TMP.${PROG}.$1.39 2>>~/$LOGFILE
 	      v.db.select -c map="$INPUT"_"$1"_snaptmp8 layer=2 column=y,dist where="dist > 0.001 AND dist < $SNAP" separator=" " nv=0 --q > $TMP.${PROG}.$1.400 2>>~/$LOGFILE
 	      m.tripl --input=$TMP.${PROG}.$1.400 --output=$TMP.${PROG}.$1.401 --col=1 2>>~/$LOGFILE
-      	head -n 1 $TMP.${PROG}.$1.401 |cut -d" " -f1 > $TMP.${PROG}.$1.40 2>>~/$LOGFILE
+      	      head -n 1 $TMP.${PROG}.$1.401 |cut -d" " -f1 > $TMP.${PROG}.$1.40 2>>~/$LOGFILE
 	      #difference between  $TMP.${PROG}.37 $TMP.${PROG}.38 (ending coordinate ) et $TMP.${PROG}.39 $TMP.${PROG}.40 (starting coordinate)
-       	echo "`cat $TMP.${PROG}.$1.37`-`cat $TMP.${PROG}.$1.39`"|bc > $TMP.${PROG}.$1.33 2>>~/$LOGFILE
+       	      echo "`cat $TMP.${PROG}.$1.37`-`cat $TMP.${PROG}.$1.39`"|bc > $TMP.${PROG}.$1.33 2>>~/$LOGFILE
 	      echo "`cat $TMP.${PROG}.$1.38`-`cat $TMP.${PROG}.$1.40`"|bc > $TMP.${PROG}.$1.34 2>>~/$LOGFILE
 	      #moving the point in  INPUT_snaptmp
 
