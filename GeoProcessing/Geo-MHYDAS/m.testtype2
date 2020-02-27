@@ -42,7 +42,6 @@ then
 fi 
 
 #GRASS version testing, must be >= 6.3
-
 Gversion1=`g.version |cut -d" " -f2 |cut -d"." -f1`
 Gversion2=`g.version |cut -d" " -f2 |cut -d"." -f2`
 
@@ -123,20 +122,22 @@ if [ $? -ne 0 ] ; then
 fi
 
 
-v.info map="$INPUT" --quiet | grep "lines:" | cut -c30-40  > $TMP.${PROG}.1 2>>~/$LOGFILE
+#v.info map="$INPUT" --quiet | grep "lines:" | cut -c30-40  > $TMP.${PROG}.1 2>>~/$LOGFILE
+v.info map="$INPUT" --quiet | grep  -oE 'lines:\s+[0-9]+' | grep -oE '[0-9]+'  > $TMP.${PROG}.1 2>>~/$LOGFILE
 typeset -i line1
 line1=`cat $TMP.${PROG}.1`
 
 
-v.info map="$INPUT"  --quiet | grep "centroids:" | cut -c30-40 > $TMP.${PROG}.2 2>>~/$LOGFILE
+#v.info map="$INPUT"  --quiet | grep "centroids:" | cut -c30-40 > $TMP.${PROG}.2 2>>~/$LOGFILE
+v.info map="$INPUT" --quiet | grep  -oE 'centroids:\s+[0-9]+' | grep -oE '[0-9]+' > $TMP.${PROG}.2 2>>~/$LOGFILE
 typeset -i centro1
 centro1=`cat $TMP.${PROG}.2`
 
 
-v.info map="$INPUT"  --quiet| grep "points:" | cut -c30-40  > $TMP.${PROG}.3 2>>~/$LOGFILE
+#v.info map="$INPUT"  --quiet| grep "points:" | cut -c30-40  > $TMP.${PROG}.3 2>>~/$LOGFILE
+v.info map="$INPUT" --quiet | grep  -oE 'points:\s+[0-9]+' | grep -oE '[0-9]+'  > $TMP.${PROG}.3 2>>~/$LOGFILE
 typeset -i pt1
 pt1=`cat $TMP.${PROG}.3`
-
 
 if [ $line1 -ne 0 ];then
 	echo "$line1" 
@@ -155,4 +156,3 @@ fi
 ##cleanup procedure
 cleanup
 exit 0
-
