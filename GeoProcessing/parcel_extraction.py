@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 # PURPOSE       : To create urban parcel from road networks
+# Ref: Liu, Xingjian, and Ying Long. “Automated Identification and Characterization of Parcels with OpenStreetMap and Points of Interest.” 
+#           Environment and Planning B-Planning & Design, vol. 43, no. 2, 2016, pp. 341–360.
+
 
 import grass.script as gs
 import re
